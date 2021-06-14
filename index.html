@@ -2,6 +2,7 @@
   <head>
     <link rel="stylesheet" href="reset.css"/>
     <link rel="stylesheet" href="sheet.css"/>
+    <script src="components.js" type="text/javascript"></script>
     <script src="jquery-min.js" type="text/javascript"></script>
     <script src="sheet.js" type="text/javascript"></script>
   </head>
@@ -32,9 +33,9 @@
               <textarea class="section" id="description_block"></textarea>
               <h1 class="header">Description</h1>
             </div>
-            <div class="section" id="trait_block">
+            <div class="section" id="attribute_block">
               <h1>Attributes</h1>
-              <div class="trait physical">
+              <div class="attribute physical">
                 <h2>Physical</h2>
                 <div>
                   <label>
@@ -67,7 +68,7 @@
                   </label>
                 </div>
               </div>
-              <div class="trait mental">
+              <div class="attribute mental">
                 <h2>Mental</h2>
                 <div>
                   <label>
@@ -100,7 +101,7 @@
                   </label>
                 </div>
               </div>
-              <div class="trait social">
+              <div class="attribute social">
                 <h2>Social</h2>
                 <div>
                   <label>
@@ -149,360 +150,60 @@
               <div class="skill" id="athletics">
                 <h2>Athletics<span class="ability"></span></h2>
                 <span class="info">Physical x 10</span>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
               </div>
               <div class="skill" id="resistance">
                 <h2>Resistance<span class="ability"></span></h2>
                 <span class="info">(Physical + Mental) x 5</span>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
               </div>
             </div>
             <div class="row">
               <div class="skill" id="knowledge">
                 <h2>Knowledge<span class="ability"></span></h2>
                 <span class="info">Mental x 10</span>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
               </div>
               <div class="skill" id="awareness">
                 <h2>Awareness<span class="ability"></span></h2>
                 <span class="info">(Mental + Social) x 5</span>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
               </div>
             </div>
             <div class="row">
               <div class="skill" id="persuasion">
                 <h2>Persuasion<span class="ability"></span></h2>
                 <span class="info">Social x 10</span>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
               </div>
               <div class="skill" id="presence">
                 <h2>Presence<span class="ability"></span></h2>
                 <span class="info">(Physical + Social) x 5</span>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" name="focus"/>
-                    <svg viewbox="0 0 8 8">
-                      <circle cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="black"/>
-                      <circle class="unchecked" cx="4" cy="4" r="3" stroke="black" stroke-width="1" fill="white"/>
-                    </svg>
-                  </label>
-                  <input type="text" class="name"/>
-                  <input type="text" class="value"/>
-                </div>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
+                <skill-row></skill-row>
               </div>
             </div>
           </div>

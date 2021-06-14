@@ -16,10 +16,4 @@ class SkillRow extends HTMLElement {
   }
 }
 
-class AttributeBlock extends HTMLElement {
-  connectedCallback() {
-    
-  }
-}
-
 customElements.define("skill-row", SkillRow);
