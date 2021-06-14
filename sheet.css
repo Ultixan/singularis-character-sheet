@@ -279,13 +279,13 @@ input[type=radio], input[type=checkbox] {
   flex-basis: 70%;
 }
 
-.row {
+.row, skill-row {
   flex-direction: row;
   display: flex;
   align-items: center;
 }
 
-.skill .row {
+.skill>skill-row {
   margin-top: 0.45rem;
 }
 
