@@ -21,53 +21,6 @@ $(document).ready(function() {
     var awareness = $('#awareness .ability');
     var presence = $('#presence .ability');
 
-    let validateTalents = function() {
-      let talents = document.querySelectorAll('.skill input.value');
-      var used = 0;
-      var valid = true;
-      talents.forEach(talent => {
-        let value = talent.value;
-        // Nothing in the value
-        if (value == '') {
-          return;
-        }
-
-        // Not a valid number
-        if (isNaN(value) || parseFloat(value) != parseInt(value)) {
-          talent.classList.add('invalid');
-          valid = false;
-          return;
-        }
-
-        let skillVal = parseInt(talent.closest('.skill').querySelector('.ability').innerHTML);
-        let intVal = parseInt(value);
-        if (intVal > skillVal) {
-          talent.classList.add('invalid');
-          valid = false;
-          return;
-        }
-
-        // All good, count its value
-        talent.classList.remove('invalid');
-        used += parseInt(value);
-      });
-
-      if (used > 180) {
-        valid = false;
-      }
-
-      let counter = $('#counters .talents')
-      $('span', counter).text(180 - used);
-
-      counter.removeClass('invalid');
-      counter.removeClass('valid');
-      if (!valid) {
-        counter.addClass('invalid');
-      } else if (used == 180) {
-        counter.addClass('valid');
-      }
-    };
-
     var calculateAbilities = function() {
         var physical = traitCalc(physicalTraits);
         var mental = traitCalc(mentalTraits);
@@ -93,8 +46,6 @@ $(document).ready(function() {
         resistance.text((physical + mental) * 5);
         awareness.text((mental + social) * 5);
         presence.text((social + physical) * 5);
-
-        validateTalents();
     };
 
     $('.attribute input').change(function() {
@@ -124,10 +75,4 @@ $(document).ready(function() {
     $('#description_block').change(function(event) {
       requireInput($('#description_block'), $('#counters .description'));
     });
-
-    $('.skill input[name=focus]').change(function() {
-      $('#counters .signature_talent').addClass('valid');
-    });
-
-    $('.skill input.value').change(validateTalents);
 });
