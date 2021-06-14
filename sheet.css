@@ -1,4 +1,4 @@
-@font-face {
+attribute@font-face {
     font-family: Archeologicaps;
     src: url('fonts/Archeologicaps.ttf');
 }
@@ -121,21 +121,21 @@ input {
   left: 0;
 }
 
-.trait {
+.attribute {
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.trait h2 {
+.attribute h2 {
   display: block;
   vertical-align: middle;
   text-align: center;
   font-family: JustOldFashion;
 }
 
-.trait input {
+.attribute input {
     -webkit-appearance: none;
     width: 0.75rem;
     height: 0.75rem;
@@ -145,7 +145,7 @@ input {
     margin: 0;
 }
 
-.trait input:first-of-type {
+.attribute input:first-of-type {
     margin-left: 0.55rem;
 }
 
@@ -285,7 +285,7 @@ input[type=radio], input[type=checkbox] {
   align-items: center;
 }
 
-.skill>.row {
+.skill .row {
   margin-top: 0.45rem;
 }
 
@@ -296,7 +296,7 @@ input[type=radio], input[type=checkbox] {
   font-size: 1.1rem;
 }
 
-#trait_block {
+#attribute_block {
   display: flex;
   flex: none;
 }

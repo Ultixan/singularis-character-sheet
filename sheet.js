@@ -97,7 +97,7 @@ $(document).ready(function() {
         validateTalents();
     };
 
-    $('.trait input').change(function() {
+    $('.attribute input').change(function() {
         calculateAbilities();
     });
 
