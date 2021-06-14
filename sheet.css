@@ -1,16 +1,16 @@
 @font-face {
     font-family: Archeologicaps;
-    src: url('Archeologicaps.ttf');
+    src: url('fonts/Archeologicaps.ttf');
 }
 
 @font-face {
   font-family: OptimusPrinceps;
-  src: url('OptimusPrinceps.ttf');
+  src: url('fonts/OptimusPrinceps.ttf');
 }
 
 @font-face {
-  font-family: RupturedSans;
-  src: url('JustOldFashion.ttf');
+  font-family: JustOldFashion;
+  src: url('fonts/JustOldFashion.ttf');
 }
 
 * {
@@ -132,7 +132,7 @@ input {
   display: block;
   vertical-align: middle;
   text-align: center;
-  font-family: RupturedSans;
+  font-family: JustOldFashion;
 }
 
 .trait input {
@@ -165,7 +165,7 @@ input {
   vertical-align: middle;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-family: RupturedSans;
+  font-family: JustOldFashion;
 }
 
 .skill .ability {
