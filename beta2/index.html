@@ -1,0 +1,162 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="sheet.css"/>
+    <script src="components.js" type="text/javascript"></script>
+    <script src="jquery-min.js" type="text/javascript"></script>
+    <script src="sheet.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="page">
+        <div class="flex">
+          <div id="details" class="layout">
+            <div id="logo">
+              <div>
+                <svg viewbox="0 0 800 800">
+                  <circle cx="400" cy="400" r="30" stroke="black" stroke-width="1" fill="black"/>
+                  <path d="M125,675 Q800,500 400,300 Q1000,550 25,775" fill="black" stroke="black" stroke-width="1"/>
+                  <path d="M675,125 Q0,300 400,500 Q-200,250 775,25" fill="black" stroke="black" stroke-width="1"/>
+                </svg>
+                <h1>ingularis</h1>
+              </div>
+            </div>
+            <div class="container">
+              <input class="section" id="name_block"/>
+              <h1 class="header">Name</h1>
+            </div>
+            <div class="container">
+              <input class="section" id="schtick_block"/>
+              <h1 class="header">Signature Talent</h1>
+            </div>
+            <div class="container" id="description_container">
+              <textarea class="section" id="description_block"></textarea>
+              <h1 class="header">Description</h1>
+            </div>
+            <div class="section" id="attribute_block">
+              <h1>Attributes</h1>
+              <div class="attribute physical">
+                <h2>Physical</h2>
+                <div>
+                  <attribute-point checked="checked" disabled="disabled"></attribute-point>
+                  <attribute-point></attribute-point>
+                  <attribute-point></attribute-point>
+                  <attribute-point></attribute-point>
+                </div>
+              </div>
+              <div class="attribute mental">
+                <h2>Mental</h2>
+                <div>
+                  <attribute-point checked="checked" disabled="disabled"></attribute-point>
+                  <attribute-point></attribute-point>
+                  <attribute-point></attribute-point>
+                  <attribute-point></attribute-point>
+                </div>
+              </div>
+              <div class="attribute social">
+                <h2>Social</h2>
+                <div>
+                  <attribute-point  checked="checked" disabled="disabled"></attribute-point>
+                  <attribute-point></attribute-point>
+                  <attribute-point></attribute-point>
+                  <attribute-point></attribute-point>
+                </div>
+              </div>
+            </div>
+            <div class="container" id="perks_container">
+              <textarea class="section"></textarea>
+              <h1 class="header">Perks</h1>
+            </div>
+            <div class="container" id="penalties_container">
+              <textarea class="section"></textarea>
+              <h1 class="header">Penalties</h1>
+            </div>
+          </div>
+          <div id="skill_block" class="section layout">
+            <h1>Skills</h1>
+            <div class="skill" id="athletics">
+              <h2>Athletics<span class="ability"></span></h2>
+              <span class="info">Physical x 10</span>
+              <skill-row></skill-row>
+            </div>
+            <div class="skill" id="resistance">
+              <h2>Resistance<span class="ability"></span></h2>
+              <span class="info">(Physical + Mental) x 5</span>
+              <skill-row></skill-row>
+            </div>
+            <div class="skill" id="knowledge">
+              <h2>Knowledge<span class="ability"></span></h2>
+              <span class="info">Mental x 10</span>
+              <skill-row></skill-row>
+            </div>
+            <div class="skill" id="awareness">
+              <h2>Awareness<span class="ability"></span></h2>
+              <span class="info">(Mental + Social) x 5</span>
+              <skill-row></skill-row>
+            </div>
+            <div class="skill" id="persuasion">
+              <h2>Persuasion<span class="ability"></span></h2>
+              <span class="info">Social x 10</span>
+              <skill-row></skill-row>
+            </div>
+            <div class="skill" id="presence">
+              <h2>Presence<span class="ability"></span></h2>
+              <span class="info">(Physical + Social) x 5</span>
+              <skill-row></skill-row>
+            </div>
+          </div>
+          <div id="destiny_track" class="layout section">
+            <h2 class="header">Doom</h2>
+            <span class="destiny">
+              <svg viewbox="0 0 8 8">
+                <polyline points="1 1, 4 7 7 1" stroke="black" fill="transparent" stroke-width="1"/>
+              </svg>
+            </span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <span class="destiny"></span>
+            <h2 class="footer">Destiny</h2>
+          </div>
+        </div>
+      </div>
+      <div id="counters">
+        <h1>Remaining Steps:</h1>
+        <ul>
+          <li class="name">Character Name</li>
+          <li class="schtick">Signature Talent</li>
+          <li class="description">Description</li>
+          <li class="attributes">Attributes: <span>3</span></li>
+        </ul>
+        <h1>Optional Steps</h1>
+        <ul>
+          <li>Select Perks &amp; Penalties</li>
+        </ul>
+        <h1>Talent Value Style</h1>
+        <div>
+          <label>
+            <input type="radio" checked name="talent-style" value="2"/>
+            Combined values
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="talent-style" value="1"/>
+            Separate values
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="talent-style" value="0"/>
+            None
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
