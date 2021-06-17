@@ -26,6 +26,11 @@ textarea.section {
   #counters {
     display: none;
   }
+
+  #page {
+    width: 210mm;
+    height: 148mm;
+  }
 }
 
 html {
@@ -40,9 +45,7 @@ input {
 
 #page {
   margin: 0 auto;
-  width: 297mm;
-  //height: 210mm;
-  flex: none;
+  flex: auto;
 }
 
 .flex {
@@ -58,20 +61,7 @@ input {
   flex-basis: 25%;
   display: flex;
   flex-direction: column;
-}
-
-
-
-#second {
-    flex-basis: 70%;
-    vertical-align: middle;
-  background: green;
-}
-
-#third {
-  flex-basis: 5%;
-  vertical-align: middle;
-  background: blue;
+  min-width: 15rem;
 }
 
 #logo {
@@ -102,7 +92,6 @@ input {
     padding: 0.5rem;
     border-radius: 0.5rem;
     margin: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .section>h1:first-child {
@@ -135,23 +124,11 @@ input {
   font-family: JustOldFashion;
 }
 
-.attribute input {
-    -webkit-appearance: none;
+.attribute attribute-point {
     width: 0.75rem;
     height: 0.75rem;
-    border: 2px solid black;
-    border-radius: 0.3rem;
-    vertical-align: middle;
     margin: 0;
 }
-
-.attribute input:first-of-type {
-    margin-left: 0.55rem;
-}
-
-
-
-
 
 .skill {
   position: relative;
@@ -194,10 +171,6 @@ input {
     right: 0;
 }
 
-input[type=radio], input[type=checkbox] {
-  display: none;
-}
-
 .skill input[type=text] {
   display: inline-block;
   width: 50%;
@@ -206,6 +179,8 @@ input[type=radio], input[type=checkbox] {
   border-radius: 0.25rem;
   margin-top: 0.5rem;
   align-self: baseline;
+  box-sizing: border-box;
+  height: 1.5rem;
 }
 
 .section .skill .value {
@@ -215,7 +190,11 @@ input[type=radio], input[type=checkbox] {
     border-top: 2px solid black;
     border-radius: 0.25rem;
     text-align: center;
-  flex-grow: 0;
+    flex-grow: 0;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+    height: 1.5rem;
+    padding-top: 0.15rem;
 }
 
 #name_block, #schtick_block {
@@ -277,6 +256,7 @@ input[type=radio], input[type=checkbox] {
   display: flex;
   flex-direction: column;
   flex-basis: 70%;
+  min-width: 15rem;
 }
 
 .row, skill-row {
@@ -353,7 +333,7 @@ input[type=radio], input[type=checkbox] {
   top: -0.4rem;
 }
 
-input[type=radio] + svg, input[type=checkbox] + svg {
+attribute-point svg {
   height: 0.8rem;
   width: 0.8rem;
   vertical-align: text-bottom;
@@ -364,14 +344,14 @@ input[disabled] + svg {
   cursor: default;
 }
 
-input[type=radio] + svg>.unchecked, input[type=checkbox] + svg>.unchecked {
+attribute-point svg>.unchecked {
   display: inline;
 }
 
-input[type=radio]:checked + svg>.unchecked, input[type=checkbox]:checked + svg>.unchecked {
+attribute-point[checked] svg>.unchecked {
   display: none;
 }
 
-.destiny svg {
-
+.hide {
+  display: none;
 }

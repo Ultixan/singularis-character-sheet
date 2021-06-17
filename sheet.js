@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    var physicalTraits = $('.physical input[name=physical]');
-    var mentalTraits = $('.mental input[name=mental]');
-    var socialTraits = $('.social input[name=social]');
+    var physicalTraits = $('.physical attribute-point');
+    var mentalTraits = $('.mental attribute-point');
+    var socialTraits = $('.social attribute-point');
 
     var traitCalc = function(traits) {
         var count = 0;
@@ -15,11 +15,29 @@ $(document).ready(function() {
     }
 
     var athletics = $('#athletics .ability');
+    var athleticsTalent = $('#athletics .value');
     var knowledge = $('#knowledge .ability');
+    var knowledgeTalent = $('#knowledge .value');
     var persuasion = $('#persuasion .ability');
+    var persuasionTalent = $('#persuasion .value');
     var resistance = $('#resistance .ability');
+    var resistanceTalent = $('#resistance .value');
     var awareness = $('#awareness .ability');
+    var awarenessTalent = $('#awareness .value');
     var presence = $('#presence .ability');
+    var presenceTalent = $('#presence .value');
+
+    var talentValue = 2;
+
+    var setValues = function(skill, talent, skillValue) {
+      skill.text(skillValue);
+      if (talentValue == 0) {
+        talent.addClass('hide');
+      } else {
+        talent.text(skillValue * talentValue);
+        talent.removeClass('hide');
+      }
+    }
 
     var calculateAbilities = function() {
         var physical = traitCalc(physicalTraits);
@@ -40,15 +58,20 @@ $(document).ready(function() {
           attributeCounter.parent().removeClass('invalid');
         }
 
-        athletics.text(physical * 10);
-        knowledge.text(mental * 10);
-        persuasion.text(social * 10);
-        resistance.text((physical + mental) * 5);
-        awareness.text((mental + social) * 5);
-        presence.text((social + physical) * 5);
+        setValues(athletics, athleticsTalent, physical * 10);
+        setValues(knowledge, knowledgeTalent, mental * 10);
+        setValues(persuasion, persuasionTalent, social * 10);
+        setValues(resistance, resistanceTalent, (physical + mental) * 5);
+        setValues(awareness, awarenessTalent, (mental + social) * 5);
+        setValues(presence, presenceTalent, (social + physical) * 5);
     };
 
-    $('.attribute input').change(function() {
+    $('input[name=talent-style]').change(function() {
+      talentValue = parseInt($('input[name=talent-style]:checked').val());
+      calculateAbilities();
+    })
+
+    $('.attribute attribute-point').change(function() {
         calculateAbilities();
     });
 
