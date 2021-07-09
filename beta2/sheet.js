@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    let characters = JSON.parse(localStorage.getItem("characters") || "{}");
     var physicalTraits = $('.physical attribute-point');
     var mentalTraits = $('.mental attribute-point');
     var socialTraits = $('.social attribute-point');
@@ -26,6 +27,15 @@ $(document).ready(function() {
     var awarenessTalent = $('#awareness .value');
     var presence = $('#presence .ability');
     var presenceTalent = $('#presence .value');
+
+    let skillNames = [
+      'athletics',
+      'knowledge',
+      'persuasion',
+      'resistance',
+      'awareness',
+      'presence'
+    ];
 
     var talentValue = 2;
 
@@ -82,10 +92,86 @@ $(document).ready(function() {
       if (text == null || text == '') {
         counter.addClass('invalid');
         counter.removeClass('valid');
+        return false;
       } else {
         counter.addClass('valid');
         counter.removeClass('invalid');
+        return true;
       }
+    };
+
+    let saveData = function() {
+      if (!requireInput($('#name_block'), $('#counters .name'))) {
+        return;
+      }
+      let physical = traitCalc(physicalTraits);
+      let mental = traitCalc(mentalTraits);
+      let social = traitCalc(socialTraits);
+      let attributes = {
+        "physical": physical,
+        "mental": mental,
+        "social": social
+      }
+      let talents = skillNames.reduce((acc, skill) => {
+        acc[skill] = $(`#${skill} .name`).val();
+        return acc
+      }, {});
+      let name = $('#name_block').val();
+      let character = {
+        "name": name,
+        "description": $('#description_block').val(),
+        "signatureTalent": $('#schtick_block').val(),
+        "attributes": attributes,
+        "talents": talents,
+        "perks": $('#perks_container .section').val(),
+        "penalties": $('#penalties_container .section').val()
+      };
+      characters[name] = character;
+      localStorage.setItem("characters", JSON.stringify(characters));
+      loadData();
+    };
+
+    let loadCharacter = function(name) {
+      let character = characters[name];
+      $('#name_block').val(character['name']);
+      $('#schtick_block').val(character['signatureTalent']);
+      $('#description_block').val(character['description']);
+      $('#perks_container .section').val(character['perks']);
+      $('#penalties_container .section').val(character['penalties']);
+      Object.entries(character['talents']).forEach(entry => $(`#${entry[0]} .name`).val(entry[1]));
+      Object.entries(character['attributes']).forEach(entry => {
+        $(`#attribute_block .${entry[0]} attribute-point`).each(function (index, attribute) {
+          if (index < entry[1]) {
+            $(attribute).attr('checked', 'checked');
+          } else {
+            $(attribute).removeAttr('checked');
+          }
+        });
+      });
+      calculateAbilities();
+    };
+
+    let loadData = function() {
+      let charList = $('#character-list');
+      charList.empty();
+      Object.keys(characters).forEach(name => {
+        let character = $('<li/>');
+        let charName = $('<div/>');
+        let loadButton = $('<button>Load</button>');
+        let deleteButton = $('<button>Delete</button>');
+        charName.text(name);
+        character.append(charName);
+        character.append(loadButton);
+        character.append(deleteButton);
+        charList.append(character);
+
+        loadButton.click(function() {loadCharacter(name)});
+        deleteButton.click(function() {
+          delete characters[name];
+          localStorage.setItem("characters", JSON.stringify(characters));
+          loadData();
+        });
+      });
     };
 
     // Text input areas just need something populated
@@ -98,4 +184,10 @@ $(document).ready(function() {
     $('#description_block').change(function(event) {
       requireInput($('#description_block'), $('#counters .description'));
     });
+
+    $('#save-button').click(function() {
+      saveData();
+    });
+
+    loadData();
 });

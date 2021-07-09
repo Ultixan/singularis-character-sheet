@@ -356,3 +356,19 @@ attribute-point[checked] svg>.unchecked {
 .hide {
   display: none;
 }
+
+#character-list {
+  margin-top: 1.5rem;
+}
+
+#character-list li {
+  padding: 0.5rem;
+}
+
+#character-list li:nth-child(even) {
+  background-color: #EFEFEF;
+}
+
+#character-list li:nth-child(odd) {
+  background-color: #C7C7C7;
+}
