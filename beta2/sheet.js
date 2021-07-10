@@ -189,5 +189,17 @@ $(document).ready(function() {
       saveData();
     });
 
+    $('#destiny_track .destiny-doom').click(function(event) {
+      let slot = $(event.currentTarget);
+      if (slot.hasClass('doom')) {
+        slot.removeClass('doom');
+        slot.addClass('destiny');
+      } else if (slot.hasClass('destiny')) {
+        slot.removeClass('destiny');
+      } else {
+        slot.addClass('doom');
+      }
+    });
+
     loadData();
 });

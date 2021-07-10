@@ -239,7 +239,7 @@ input {
   padding: 0 0.1rem;
 }
 
-#destiny_track .destiny {
+#destiny_track .destiny-doom {
   border: 3px solid black;
   height: 2rem;
   width: 2.5rem;
@@ -247,6 +247,19 @@ input {
   border-radius: 30%;
   margin: 0 0.5rem;
   flex-direction: column;
+  cursor: pointer;
+}
+
+#destiny_track .destiny-doom .doom, #destiny_track .destiny-doom .destiny {
+  display: none;
+}
+
+#destiny_track .destiny-doom.doom .doom {
+  display: block;
+}
+
+#destiny_track .destiny-doom.destiny .destiny {
+  display: block;
 }
 
 #rules li {
